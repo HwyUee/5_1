@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Order {
 
-    private List<OrderLineItem> orderLineItemList;
-    private List<BigDecimal> discounts;
-    private BigDecimal tax;
+    public List<OrderLineItem> orderLineItemList;
+    public List<BigDecimal> discounts;
+    public BigDecimal tax;
 
     public Order(List<OrderLineItem> orderLineItemList, List<BigDecimal> discounts) {
         this.orderLineItemList = orderLineItemList;
@@ -16,7 +16,8 @@ public class Order {
     }
 
     public BigDecimal calculate() {
-        BigDecimal subTotal = new BigDecimal(0);
+        return new PriceCaculator(this).Calculate();
+        /*BigDecimal subTotal = new BigDecimal(0);
 
         // Total up line items
         for (OrderLineItem lineItem : orderLineItemList) {
@@ -34,6 +35,6 @@ public class Order {
         // calculate GrandTotal
         BigDecimal grandTotal = subTotal.add(tax);
 
-        return grandTotal;
+        return grandTotal;*/
     }
 }
